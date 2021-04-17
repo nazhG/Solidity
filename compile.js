@@ -31,3 +31,6 @@ for (var contractName in output.contracts['Inbox.sol']) {
       output.contracts['Inbox.sol'][contractName].evm.bytecode.object
   );
 }
+
+// usar la extencion es mucha mas facil ;(
+// solc --bin sourceFile.sol obtener binario por medio de la consola
