@@ -16,7 +16,7 @@ contract Ballot {
         players.push(payable(msg.sender));
     }
 
-    //pure ?
+    //pure ??
     function random() private view returns (uint) {
         return uint(keccak256(abi.encodePacked(block.timestamp)));
     }

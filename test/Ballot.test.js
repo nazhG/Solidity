@@ -80,6 +80,7 @@ describe('Ballot', () => {
         const banlanceBefore = await web3.eth.getBalance(accounts[1]);
 
         const different = banlanceBefore - banlanceAfter;
+        // console.log(different); por que no consimi al insenar en un array vacio
         assert(different > web3.utils.toWei('1.8', 'ether'));
     });
 
