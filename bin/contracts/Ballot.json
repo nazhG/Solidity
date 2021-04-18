@@ -1,0 +1,211 @@
+{
+    "contractName": "Ballot",
+    "abi": [
+        {
+            "inputs": [],
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+        },
+        {
+            "inputs": [],
+            "name": "manager",
+            "outputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        }
+    ],
+    "metadata": "{\"compiler\":{\"version\":\"0.8.3+commit.8d00100c\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"manager\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"c:/src/ether/inbox/contracts/ballot.sol\":\"Ballot\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"c:/src/ether/inbox/contracts/ballot.sol\":{\"keccak256\":\"0xeaab472cca4602ab37122ec60956771d0618965d147a8d6e9a60bb0d9822a71c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b8e0a743143a73c8b487bd0e20494229de01a1abb5947de05785e60a5891a847\",\"dweb:/ipfs/QmWdTGbCSyULpwbcMzanR7fEmmTcD8uxJ3HM8B2MM9aTLN\"]}},\"version\":1}",
+    "bytecode": "6080604052348015600f57600080fd5b50600080546001600160a01b031916331790556091806100306000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c8063481c6a7514602d575b600080fd5b600054603f906001600160a01b031681565b6040516001600160a01b03909116815260200160405180910390f3fea2646970667358221220a0446214caa51b019ac50cf8ba7689cc3f78fe96e1d5833fae8ea0f3c07f6dc964736f6c63430008030033",
+    "deployedBytecode": "6080604052348015600f57600080fd5b506004361060285760003560e01c8063481c6a7514602d575b600080fd5b600054603f906001600160a01b031681565b6040516001600160a01b03909116815260200160405180910390f3fea2646970667358221220a0446214caa51b019ac50cf8ba7689cc3f78fe96e1d5833fae8ea0f3c07f6dc964736f6c63430008030033",
+    "sourceMap": "68:114:0:-:0;;;124:53;;;;;;;;;-1:-1:-1;149:7:0;:20;;-1:-1:-1;;;;;;149:20:0;159:10;149:20;;;68:114;;;;;;",
+    "deployedSourceMap": "68:114:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;93:22;;;;;-1:-1:-1;;;;;93:22:0;;;;;;-1:-1:-1;;;;;178:32:1;;;160:51;;148:2;133:18;93:22:0;;;;;;",
+    "sourcePath": "c:/src/ether/inbox/contracts/ballot.sol",
+    "compiler": {
+        "name": "solc",
+        "version": "0.8.3+commit.8d00100c"
+    },
+    "ast": {
+        "absolutePath": "c:/src/ether/inbox/contracts/ballot.sol",
+        "exportedSymbols": {
+            "Ballot": [
+                13
+            ]
+        },
+        "id": 14,
+        "license": "MIT",
+        "nodeType": "SourceUnit",
+        "nodes": [
+            {
+                "id": 1,
+                "literals": [
+                    "solidity",
+                    ">=",
+                    "0.7",
+                    ".0",
+                    "<",
+                    "0.9",
+                    ".0"
+                ],
+                "nodeType": "PragmaDirective",
+                "src": "33:31:0"
+            },
+            {
+                "abstract": false,
+                "baseContracts": [],
+                "contractDependencies": [],
+                "contractKind": "contract",
+                "fullyImplemented": true,
+                "id": 13,
+                "linearizedBaseContracts": [
+                    13
+                ],
+                "name": "Ballot",
+                "nameLocation": "77:6:0",
+                "nodeType": "ContractDefinition",
+                "nodes": [
+                    {
+                        "constant": false,
+                        "functionSelector": "481c6a75",
+                        "id": 3,
+                        "mutability": "mutable",
+                        "name": "manager",
+                        "nameLocation": "108:7:0",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 13,
+                        "src": "93:22:0",
+                        "stateVariable": true,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                        },
+                        "typeName": {
+                            "id": 2,
+                            "name": "address",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "93:7:0",
+                            "stateMutability": "nonpayable",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                            }
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "body": {
+                            "id": 11,
+                            "nodeType": "Block",
+                            "src": "138:39:0",
+                            "statements": [
+                                {
+                                    "expression": {
+                                        "id": 9,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "lValueRequested": false,
+                                        "leftHandSide": {
+                                            "id": 6,
+                                            "name": "manager",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 3,
+                                            "src": "149:7:0",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_address",
+                                                "typeString": "address"
+                                            }
+                                        },
+                                        "nodeType": "Assignment",
+                                        "operator": "=",
+                                        "rightHandSide": {
+                                            "expression": {
+                                                "id": 7,
+                                                "name": "msg",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 4294967281,
+                                                "src": "159:3:0",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_magic_message",
+                                                    "typeString": "msg"
+                                                }
+                                            },
+                                            "id": 8,
+                                            "isConstant": false,
+                                            "isLValue": false,
+                                            "isPure": false,
+                                            "lValueRequested": false,
+                                            "memberName": "sender",
+                                            "nodeType": "MemberAccess",
+                                            "src": "159:10:0",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_address",
+                                                "typeString": "address"
+                                            }
+                                        },
+                                        "src": "149:20:0",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_address",
+                                            "typeString": "address"
+                                        }
+                                    },
+                                    "id": 10,
+                                    "nodeType": "ExpressionStatement",
+                                    "src": "149:20:0"
+                                }
+                            ]
+                        },
+                        "id": 12,
+                        "implemented": true,
+                        "kind": "constructor",
+                        "modifiers": [],
+                        "name": "",
+                        "nameLocation": "-1:-1:-1",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 4,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "135:2:0"
+                        },
+                        "returnParameters": {
+                            "id": 5,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "138:0:0"
+                        },
+                        "scope": 13,
+                        "src": "124:53:0",
+                        "stateMutability": "nonpayable",
+                        "virtual": false,
+                        "visibility": "public"
+                    }
+                ],
+                "scope": 14,
+                "src": "68:114:0"
+            }
+        ],
+        "src": "33:149:0"
+    },
+    "functionHashes": {
+        "manager()": "481c6a75"
+    },
+    "gasEstimates": {
+        "creation": {
+            "codeDepositCost": "29000",
+            "executionCost": "20916",
+            "totalCost": "49916"
+        },
+        "external": {
+            "manager()": "1003"
+        }
+    }
+}
