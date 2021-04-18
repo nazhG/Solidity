@@ -4,7 +4,7 @@ pragma solidity >=0.7.0 <0.9.0;
 contract Ballot {
 
     address public manager;
-    address payable[] public players; 
+    address[] public players; 
 
     constructor() {
         manager = msg.sender;
@@ -20,6 +20,6 @@ contract Ballot {
     }
     function pickWinner() public {
         uint index = random() % players.length;
-        players[index].transfer(address(this).balance);
+        payable(players[index]).transfer(address(this).balance);
     }
 }
