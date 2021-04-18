@@ -1,2 +1,4 @@
 node_modules
-bin/contracts/
+bin/contracts/ballot-solc-output.json
+bin/contracts/Ballot.bin
+bin/contracts/Ballot.json
