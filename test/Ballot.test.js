@@ -6,9 +6,6 @@ const path = require('path');
 const abiPath = path.resolve(__dirname,'../bin/contracts','Ballot.abi');
 const bytePath = path.resolve(__dirname,'../bin/contracts','Ballot.bin');
 
-// el proveedor da la instrucion de como comuniccarse con la red
-// para eso se usa un API de infura, que reemplasa un nodo de la red
-// https://infura.io/
 const provider = ganache.provider();
 const web3 = new Web3(provider);
 
@@ -16,24 +13,74 @@ const interface = fs.readFileSync(abiPath,'utf8');
 const bytecode = fs.readFileSync(bytePath,'utf8');
 
 let accounts;
-let inbox;
+let contract;
 beforeEach(async () => {
     //get al list of all accoun
     accounts = await web3.eth.getAccounts();
 
     // Use one of those accoun to deploy
-    inbox = await new web3.eth.Contract(JSON.parse(interface))
+    contract = await new web3.eth.Contract(JSON.parse(interface))
     .deploy({data:bytecode})
     .send({from: accounts[0], gas: '1000000'});
-    inbox.setProvider(provider);
+    contract.setProvider(provider);
 });
 
-describe('Inbox', () => {
+describe('Ballot', () => {
     it('deploys a contract', () => {
-        assert.ok(inbox.options.address);
+        assert.ok(contract.options.address);
     });
-    it('has a default message', async () => {
-        const manager = await inbox.methods.manager().call();
-        assert.strictEqual(manager, accounts[0]);
+    it('allow enter', async () => {
+        let i = 0;
+        for(let x of Array(3)) {      
+            await contract.methods.enter().send({
+                from: accounts[i++],
+                value: web3.utils.toWei('0.02', 'ether')
+            });
+        }
+        const players = await contract.methods.getPlayers().call({
+            from: accounts[0]
+        });
+        assert.strictEqual(players[0], accounts[0]);
+        assert.strictEqual(players.length, i);
     });
+    it('minimun amount', async () => {
+        try {
+            await contract.methods.enter().send({
+                from: accounts[0],
+                value: 200
+            });
+            assert(false);
+        } catch (err) {
+            assert.ok(err);
+        }
+    });
+    it('Restricted', async () => {
+        try {
+            await contract.methods.pickWinner().send({
+                from: accounts[1]
+            });
+            assert(false);
+        } catch (err) {
+            assert.ok(err);
+        }
+    });
+    it('pay to the winner, winner valid', async () => {
+        
+        await contract.methods.enter().send({
+            from: accounts[1],
+            value: web3.utils.toWei('2', 'ether')
+        });
+        
+        const banlanceAfter = await web3.eth.getBalance(accounts[1]);
+        
+        await contract.methods.pickWinner().send({
+            from: accounts[0]
+        });
+        
+        const banlanceBefore = await web3.eth.getBalance(accounts[1]);
+
+        const different = banlanceBefore - banlanceAfter;
+        assert(different > web3.utils.toWei('1.8', 'ether'));
+    });
+
 });
